@@ -190,6 +190,7 @@ button.profile img:first-child {
 .repo-name {
     color: var(--repo-color);
     font-size: 2.5rem;
+    cursor: pointer;
 }
 
 .repo-description {
