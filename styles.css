@@ -2,6 +2,11 @@
     --header-color: #24292e;
     --white-color: #ffffff;
     --border-color: #444d56;
+    --input-color: #e1e4e8;
+    --line-color: #ebedef;
+    --repo-color: #0366d6;
+    --text-color: #586069;
+    --star-bg: #fafbfc;
 }
 
 * {
@@ -110,8 +115,8 @@ button.profile img:first-child {
     max-width: 120rem;
     margin: 2rem auto;
     display: grid;
-    grid-template-columns: 1.1fr 3fr;
-    gap: 2rem;
+    grid-template-columns: 1.2fr 3fr;
+    gap: 1rem;
     min-height: 100vh;
 }
 
@@ -124,9 +129,6 @@ button.profile img:first-child {
     border-radius: 50%;
 }
 
-.main {
-    background-color: violet;
-}
 
 .smiley {
     background-color: var(--white-color);
@@ -137,7 +139,7 @@ button.profile img:first-child {
     box-shadow: 1px 1px 2px rgba(0, 0, 0, .5);
     position: absolute;
     bottom: 5rem;
-    right: 5rem;
+    right: 8rem;
 }
 
 .profile-info {
@@ -154,5 +156,101 @@ button.profile img:first-child {
 
 .profile-info p {
     margin-top: 1rem;
-    font-size: 1.3rem;
+    font-size: 1.6rem;
 }
+
+.repo-search-bar {
+    padding: 0 1rem;
+}
+
+.repo-search {
+    height: 3.5rem;
+    width: 100%;
+    margin: 2rem 0;
+    padding: 0 1rem;
+    border-radius: .7rem;
+    border: 1px solid var(--input-color);
+}
+
+.repo-search:focus {
+    outline: none;
+}
+
+.repo {
+    border-bottom: 1px solid var(--line-color);
+    padding: 3rem 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.repo:first-child {
+    border-top: 1px solid var(--line-color);
+}
+
+.repo-name {
+    color: var(--repo-color);
+    font-size: 2.5rem;
+}
+
+.repo-description {
+    color: var(--text-color);
+    font-size: 1.4rem;
+}
+
+.repo-detail {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    color: var(--text-color);
+}
+
+.repo-detail small {
+    margin-right: 2rem;
+    font-size: 1rem;
+}
+
+.repo-detail img {
+    width: 1.5rem;
+    margin-right: .5rem;
+}
+
+.repo-color {
+    display: inline-block;
+    background-color: orange;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    margin-right: 1rem;
+}
+
+.svg {
+    display: inline-block;
+    overflow: visible !important;
+    vertical-align: text-bottom;
+    fill: currentColor;
+    margin-right: .5rem;
+    width: 1.5rem;
+}
+
+.repo-star {
+    width: 6.5rem;
+    height: 2.8rem;
+    margin-top: .5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--star-bg);
+    border: 1px solid rgba(27, 31, 35, 0.15);
+    border-radius: .5rem;
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: var(--header-color);
+    cursor: pointer;
+}
+
+.repo-star img {
+    width: 1.3rem;
+    margin-right: 1rem;
+}
+
+
