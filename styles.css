@@ -1,0 +1,11 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 10px;
+    line-height: 1.5;
+}
