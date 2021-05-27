@@ -1,3 +1,8 @@
+:root {
+    --header-color: #24292e;
+    --white-color: #ffffff;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -8,4 +13,18 @@ body, html {
     font-family: 'Times New Roman', Times, serif;
     font-size: 10px;
     line-height: 1.5;
+}
+
+.header {
+    height: 6rem;
+    background-color: var(--header-color);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+}
+
+.nav {
+    background-color: yellowgreen;
+    height: 2rem;
+    flex: 1;
 }
