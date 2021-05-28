@@ -125,7 +125,7 @@ button.profile img:first-child {
 }
 
 .profile-img > img {
-    width: 26rem;
+    width: 27rem;
     border-radius: 50%;
 }
 
@@ -152,6 +152,8 @@ button.profile img:first-child {
 
 .profile-info h2 {
     font-weight: 300;
+    font-size: 2rem;
+    color: var(--text-color);
 }
 
 .profile-info p {
@@ -165,6 +167,7 @@ button.profile img:first-child {
 
 .repo-search-bar {
     padding: 0 1rem;
+    border-bottom: 1px solid var(--line-color);
 }
 
 .repo-search {
@@ -180,15 +183,23 @@ button.profile img:first-child {
     outline: none;
 }
 
+.repo-count {
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--line-color);
+    font-size: 1.5rem;
+    color: var(--text-color);
+    display: inline-block;
+}
+
+.repo-count span {
+    font-weight: bold;
+}
+
 .repo {
     border-bottom: 1px solid var(--line-color);
     padding: 3rem 0;
     display: flex;
     justify-content: space-between;
-}
-
-.repo:first-child {
-    border-top: 1px solid var(--line-color);
 }
 
 .repo-info {
@@ -225,7 +236,7 @@ button.profile img:first-child {
 
 .repo-color {
     display: inline-block;
-    background-color: orange;
+    background-color: #178600;
     height: 1.5rem;
     width: 1.5rem;
     border-radius: 50%;
@@ -262,4 +273,38 @@ button.profile img:first-child {
     margin-right: 1rem;
 }
 
+.repo-html {
+    background-color: #e34c26;
+}
 
+.repo-css {
+    background-color: #563d7c;
+}
+
+.repo-javascript {
+    background-color: #f1e05a;
+}
+
+.repo-typescript {
+    background-color: #2b7489;
+}
+
+.repo-java {
+    background-color: #b07219;
+}
+
+.repo-scala {
+    background-color: #c22d40;
+}
+
+.repo-python {
+    background-color: #3572A5;
+}
+
+.repo-shell {
+    background-color: #89e051;
+}
+
+.repo-dart {
+    background-color: #00B4AB;
+}
