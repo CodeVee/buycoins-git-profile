@@ -116,7 +116,7 @@ button.profile img:first-child {
     margin: 2rem auto;
     display: grid;
     grid-template-columns: 1.2fr 3fr;
-    gap: 1rem;
+    gap: 2rem;
     min-height: 100vh;
 }
 
@@ -159,6 +159,10 @@ button.profile img:first-child {
     font-size: 1.6rem;
 }
 
+.main {
+    margin-bottom: 5rem;
+}
+
 .repo-search-bar {
     padding: 0 1rem;
 }
@@ -187,9 +191,13 @@ button.profile img:first-child {
     border-top: 1px solid var(--line-color);
 }
 
+.repo-info {
+    width: 50rem;
+    padding-right: 3rem;
+}
 .repo-name {
     color: var(--repo-color);
-    font-size: 2.5rem;
+    font-size: 1.95rem;
     cursor: pointer;
 }
 
@@ -207,7 +215,7 @@ button.profile img:first-child {
 
 .repo-detail small {
     margin-right: 2rem;
-    font-size: 1rem;
+    font-size: 1.2rem;
 }
 
 .repo-detail img {
@@ -218,8 +226,8 @@ button.profile img:first-child {
 .repo-color {
     display: inline-block;
     background-color: orange;
-    height: 2rem;
-    width: 2rem;
+    height: 1.5rem;
+    width: 1.5rem;
     border-radius: 50%;
     margin-right: 1rem;
 }
