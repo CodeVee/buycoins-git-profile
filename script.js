@@ -7,7 +7,9 @@ const login = document.getElementById('username');
 const description = document.getElementById('description');
 const repos = document.getElementById('repos');
 const repocount = document.getElementById('repo-count');
-const repono = document.getElementById('repono')
+const repono = document.getElementById('repo-no');
+const tabsimg = document.getElementById('tabs-img');
+const tabsname = document.getElementById('tabs-name');
 const toggle = document.getElementById('toggle');
 
 toggle.addEventListener('click', e => {
@@ -84,8 +86,10 @@ const getUserWithRepos = async (username) => {
 
     fullName.innerText = record.name;
     login.innerText = record.login;
+    tabsname.innerText = record.login;
     description.innerText = record.bio;
     avatar.src = record.avatarUrl;
+    tabsimg.src = record.avatarUrl;
     avatarsm.src = viewer.avatarUrl;
     avatarimg.src = viewer.avatarUrl;
     avatartxt.innerText = viewer.login;

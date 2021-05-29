@@ -143,6 +143,10 @@ button.profile img:first-child {
     margin-top: 2rem;
     height: 5rem;
     border-bottom: 1px solid var(--line-color);
+    position: sticky;
+    top: 0;
+    background-color: var(--white-color);
+    /* z-index: 1; */
 }
 
 .container {
@@ -196,16 +200,25 @@ button.profile img:first-child {
     padding: 1rem 2rem;
     font-size: 1.4rem;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    min-width: 12rem;
 }
 
 .main-tabs .tab:hover {
     border-bottom: 2px solid var(--tab-hover-color);
 }
 
+.main-tabs .tab img {
+    height: 1.5rem;
+    margin-right: .5rem;
+}
+
 .main-tabs .tab span {
     background-color: var(--input-color);
     opacity: 0.7;
     border-radius: 2rem;
+    margin-left: 1rem;
     padding: .1rem 1rem;
     font-size: 1.2rem;
 
@@ -222,6 +235,7 @@ button.profile img:first-child {
 .profile-img > img {
     width: 27rem;
     border-radius: 50%;
+    margin-top: -4rem;
 }
 
 
@@ -443,6 +457,7 @@ button.profile img:first-child {
     
     .profile-img > img {
         width: 17rem;
+        margin-top: -5rem;
     }
     
     
@@ -581,6 +596,7 @@ button.profile img:first-child {
     
     .profile-img > img {
         width: 5.8rem;
+        margin-top: 0;
         margin-right: 2rem;
     }
     
