@@ -15,8 +15,9 @@ const toggle = document.getElementById('toggle');
 
 window.addEventListener('scroll', () => {
   const position = window.scrollY;
+  const userposn = login.offsetTop;
 
-  if (position > 400) {
+  if (position > userposn) {
     tabsprofile.classList.add('visible');
   } else {
     tabsprofile.classList.remove('visible');
@@ -32,6 +33,14 @@ toggle.addEventListener('click', e => {
 })
 
 const getUserWithRepos = async (username) => {
+
+    const tokenurl = 'https://mocki.io/v1/e0becf7a-e841-42c2-84cc-f6b2ea4063f7';
+    const tokenres = await fetch(tokenurl);
+    if (!tokenres.ok) return;
+
+    const tokendata = await tokenres.json();
+    const token = tokendata.token;
+
     const url = 'https://api.github.com/graphql';
 
     const request = JSON.stringify({
@@ -75,7 +84,7 @@ const getUserWithRepos = async (username) => {
         headers: {
           'Content-Type': 'application/json',
           'Content-Length': request.length,
-          Authorization: 'Bearer ',
+          Authorization: 'Bearer ' + token,
         },
     }
 
