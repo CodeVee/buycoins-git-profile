@@ -5,6 +5,12 @@ const login = document.getElementById('username');
 const description = document.getElementById('description');
 const repos = document.getElementById('repos');
 const repocount = document.getElementById('repo-count');
+const toggle = document.getElementById('toggle');
+
+toggle.addEventListener('click', e => {
+  const header = e.target.parentElement;
+  header.classList.toggle('d-none')
+})
 
 const getUserWithRepos = async (username) => {
     const url = 'https://api.github.com/graphql';
@@ -54,12 +60,13 @@ const getUserWithRepos = async (username) => {
     }
 
     const response = await fetch(url, options);
+    console.log(response.ok)
     const data = await response.json();
     if (data.hasOwnProperty('errors')) {
         alert(data.errors[0].type)
         return;
     }
-
+    return;
     const viewer = data.data.viewer;
     const record = data.data.user;
 
