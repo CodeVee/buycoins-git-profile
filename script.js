@@ -8,6 +8,7 @@ const description = document.getElementById('description');
 const repos = document.getElementById('repos');
 const repocount = document.getElementById('repo-count');
 const repono = document.getElementById('repo-no');
+const innerrepono = document.getElementById('inner-repo-no');
 const tabsimg = document.getElementById('tabs-img');
 const tabsname = document.getElementById('tabs-name');
 const tabsprofile = document.getElementById('tabs-profile');
@@ -119,6 +120,7 @@ const getUserWithRepos = async (username) => {
     <span>${repositoriesCount}</span> ${repositoriesCount > 1 ? 'results' : 'result'} for <span>public</span> repositories
     `;
     repono.innerText = repositoriesCount;
+    innerrepono.innerText = repositoriesCount;
     const repositories = record.repositories.nodes;
     repos.innerHTML = '';
 

@@ -234,6 +234,10 @@ button.profile img:first-child {
     border-bottom: 2px solid var(--tab-active-color);
 }
 
+.inner-tabs {
+    display: none;
+}
+
 .profile-img {
     position: relative;
 }
@@ -622,6 +626,22 @@ button.profile img:first-child {
     
     .main {
         margin-bottom: 0;
+        overflow-x: hidden;
+    }
+
+    .inner-tabs {
+        display: block;
+        margin: 0 -2rem;
+        border-bottom: 1px solid var(--line-color);
+        padding: 2rem 0;
+        overflow-x: scroll;
+        position: sticky;
+        top: 0;
+        z-index: 1;
+    }
+
+    .main-tabs {
+        width: 52rem;
     }
 
     .repo-name {
