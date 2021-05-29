@@ -329,7 +329,7 @@ button.profile img:first-child {
 
 .request-txt {
     border-radius: .5rem;
-    border: 1px solid var(--line-color);
+    border: 2px solid var(--border-color);
     padding: 0 2rem;
     width: 25rem;
     height: 4rem;
@@ -712,6 +712,7 @@ button.profile img:first-child {
         margin-top: 3rem;
         padding: 0;
         font-size: 1.5rem;
+        width: 100%;
     }
     
     .main {
