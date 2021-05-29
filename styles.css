@@ -22,11 +22,33 @@ body, html {
 }
 
 .header {
-    height: 6rem;
+    min-height: 6rem;
     background-color: var(--header-color);
     padding: 0 4rem;
     display: flex;
     align-items: center;
+}
+
+.hamburger {
+    flex-direction: column;
+    justify-content: space-around;
+    height: 2.4rem;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    display: none;
+}
+
+.hamburger:active {
+    transform: scale(0.95);
+}
+
+.hamburger .line {
+    width: 2.4rem;
+    height: .2rem;
+    border-radius: .2rem;
+    background-color: var(--white-color);
+
 }
 
 .search-bar {
@@ -392,4 +414,221 @@ button.profile img:first-child {
         align-self: center;
     }
     
+}
+
+@media screen and (max-width: 450px) {
+    .header {
+        padding: 2rem;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    
+    .hamburger {
+        display: flex;
+    }
+    
+    .search-bar {
+        width: 100%;
+        margin: 2rem 0;
+        height: 3rem;
+        order: 1;
+        /* display: none; */
+    }
+    
+    .search {
+        padding: 0 1rem;
+    }
+    
+    .search-icon {
+        margin-right: 1rem;
+    }
+    
+    .nav {
+        width: 100%;
+        flex-direction: column;
+        order: 2;
+        /* display: none; */
+    }
+    
+    .nav-item {
+        font-size: 1.4rem;
+        font-weight: 700;
+        padding: 1rem 0;
+        border-top: 1px solid var(--border-color);
+    }
+    
+    .buttons {
+        width: auto;
+        margin: 0;
+    }
+
+    .buttons button img {
+        height: 100%;
+    }
+    
+    button.more, button.profile {
+        display: none;
+    }
+    
+    .container {
+        max-width: 120rem;
+        margin: 2rem auto;
+        display: grid;
+        grid-template-columns: 1.2fr 3fr;
+        gap: 2rem;
+        min-height: 100vh;
+    }
+    
+    .profile-img {
+        position: relative;
+    }
+    
+    .profile-img > img {
+        width: 27rem;
+        border-radius: 50%;
+    }
+    
+    
+    .smiley {
+        background-color: var(--white-color);
+        width: 3rem;
+        height: 3rem;
+        padding: .7rem;
+        border-radius: 50%;
+        box-shadow: 1px 1px 2px rgba(0, 0, 0, .5);
+        position: absolute;
+        bottom: 5rem;
+        right: 8rem;
+    }
+    
+    .profile-info {
+        margin-top: 2rem;
+    }
+    
+    .profile-info h1 {
+        font-size: 2.5rem;
+    }
+    
+    .profile-info h2 {
+        font-weight: 300;
+        font-size: 2rem;
+        color: var(--text-color);
+    }
+    
+    .profile-info p {
+        margin-top: 1rem;
+        font-size: 1.6rem;
+    }
+    
+    .main {
+        margin-bottom: 5rem;
+    }
+    
+    .repo-search-bar {
+        padding: 0 1rem;
+        border-bottom: 1px solid var(--line-color);
+    }
+    
+    .repo-search {
+        height: 3.5rem;
+        width: 100%;
+        margin: 2rem 0;
+        padding: 0 1rem;
+        border-radius: .7rem;
+        border: 1px solid var(--input-color);
+    }
+    
+    .repo-search:focus {
+        outline: none;
+    }
+    
+    .repo-count {
+        padding: 2rem 0;
+        border-bottom: 1px solid var(--line-color);
+        font-size: 1.5rem;
+        color: var(--text-color);
+        display: inline-block;
+    }
+    
+    .repo-count span {
+        font-weight: bold;
+    }
+    
+    .repo {
+        border-bottom: 1px solid var(--line-color);
+        padding: 3rem 0;
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .repo-info {
+        width: 50rem;
+        padding-right: 3rem;
+    }
+    .repo-name {
+        color: var(--repo-color);
+        font-size: 1.95rem;
+        cursor: pointer;
+    }
+    
+    .repo-description {
+        color: var(--text-color);
+        font-size: 1.4rem;
+    }
+    
+    .repo-detail {
+        margin-top: 1rem;
+        display: flex;
+        align-items: center;
+        color: var(--text-color);
+    }
+    
+    .repo-detail small {
+        margin-right: 2rem;
+        font-size: 1.2rem;
+    }
+    
+    .repo-detail img {
+        width: 1.5rem;
+        margin-right: .5rem;
+    }
+    
+    .repo-color {
+        display: inline-block;
+        background-color: #178600;
+        height: 1.5rem;
+        width: 1.5rem;
+        border-radius: 50%;
+        margin-right: 1rem;
+    }
+    
+    .svg {
+        display: inline-block;
+        overflow: visible !important;
+        vertical-align: text-bottom;
+        fill: currentColor;
+        margin-right: .5rem;
+        width: 1.5rem;
+    }
+    
+    .repo-star {
+        width: 6.5rem;
+        height: 2.8rem;
+        margin-top: .5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--star-bg);
+        border: 1px solid rgba(27, 31, 35, 0.15);
+        border-radius: .5rem;
+        font-size: 1.2rem;
+        font-weight: 300;
+        color: var(--header-color);
+        cursor: pointer;
+    }
+    
+    .repo-star img {
+        width: 1.3rem;
+        margin-right: 1rem;
+    }
 }
