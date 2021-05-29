@@ -1,5 +1,7 @@
 const avatar = document.getElementById('avatar');
 const avatarsm = document.getElementById('avatarsm');
+const avatarimg = document.getElementById('avatarimg');
+const avatartxt = document.getElementById('avatartxt');
 const fullName = document.getElementById('name');
 const login = document.getElementById('username');
 const description = document.getElementById('description');
@@ -8,8 +10,11 @@ const repocount = document.getElementById('repo-count');
 const toggle = document.getElementById('toggle');
 
 toggle.addEventListener('click', e => {
-  const header = e.target.parentElement;
-  header.classList.toggle('d-none')
+  let header = e.target.parentElement;
+  if (!header.classList.contains('header')) {
+    header = header.parentElement;
+  }
+  header.classList.toggle('show')
 })
 
 const getUserWithRepos = async (username) => {
@@ -18,6 +23,7 @@ const getUserWithRepos = async (username) => {
     const request = JSON.stringify({
         query: `{
             viewer {
+                login
                 avatarUrl
               }
             user(login: "${username}") {
@@ -55,18 +61,23 @@ const getUserWithRepos = async (username) => {
         headers: {
           'Content-Type': 'application/json',
           'Content-Length': request.length,
-          Authorization: 'Bearer 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',
+          Authorization: 'Bearer ',
         },
     }
 
     const response = await fetch(url, options);
-    console.log(response.ok)
     const data = await response.json();
+
+    if (!response.ok) {
+      console.log(data.message)
+      return;
+    }
+
     if (data.hasOwnProperty('errors')) {
-        alert(data.errors[0].type)
+        console.log(data.errors[0].type)
         return;
     }
-    return;
+
     const viewer = data.data.viewer;
     const record = data.data.user;
 
@@ -75,6 +86,8 @@ const getUserWithRepos = async (username) => {
     description.innerText = record.bio;
     avatar.src = record.avatarUrl;
     avatarsm.src = viewer.avatarUrl;
+    avatarimg.src = viewer.avatarUrl;
+    avatartxt.innerText = viewer.login;
 
     const repositoriesCount = record.repositories.totalCount;
     repocount.innerHTML = `
@@ -150,4 +163,4 @@ function formatRepo(name, stars, forks, description, updated, language) {
     
     `
 }
-getUserWithRepos('nkwachiabel');
+getUserWithRepos('ireade');
