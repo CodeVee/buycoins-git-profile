@@ -7,6 +7,9 @@
     --repo-color: #0366d6;
     --text-color: #586069;
     --star-bg: #fafbfc;
+    --mini-btn-color: #f3f4f6;
+    --tab-active-color: #f9826c;
+    --tab-hover-color: #d1d5da;
 }
 
 * {
@@ -136,13 +139,80 @@ button.profile img:first-child {
     border-radius: 50%;
 }
 
+.tabs {
+    margin-top: 2rem;
+    height: 5rem;
+    border-bottom: 1px solid var(--line-color);
+}
+
 .container {
     max-width: 120rem;
-    margin: 2rem auto;
+    margin: 1rem auto;
     display: grid;
     grid-template-columns: 1.2fr 3fr;
     gap: 2rem;
-    min-height: 100vh;
+    height: inherit;
+}
+
+.tabs-profile {
+    display: flex;
+}
+
+.tabs-profile img {
+    width: 3.5rem;
+    height: 3.5rem;
+    margin-right: .8rem;
+    border-radius: 50%;
+}
+
+.tabs-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.tabs-info span {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: var(--header-color);
+}
+
+.tabs-info button {
+    border: none;
+    background-color: var(--mini-btn-color);
+    padding: .2rem 1rem;
+    font-size: 1.2rem;
+    border-radius: .5rem;
+    font-weight: 300;
+    cursor: pointer;
+}
+
+.main-tabs {
+    list-style: none;
+    display: flex;
+    height: 100%;
+}
+
+.main-tabs .tab {
+    padding: 1rem 2rem;
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+
+.main-tabs .tab:hover {
+    border-bottom: 2px solid var(--tab-hover-color);
+}
+
+.main-tabs .tab span {
+    background-color: var(--input-color);
+    opacity: 0.7;
+    border-radius: 2rem;
+    padding: .1rem 1rem;
+    font-size: 1.2rem;
+
+}
+
+.main-tabs .tab.tab-active {
+    border-bottom: 2px solid var(--tab-active-color);
 }
 
 .profile-img {
@@ -491,6 +561,10 @@ button.profile img:first-child {
     }
     
     button.more, button.profile {
+        display: none;
+    }
+
+    .tabs {
         display: none;
     }
     

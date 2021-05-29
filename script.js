@@ -7,6 +7,7 @@ const login = document.getElementById('username');
 const description = document.getElementById('description');
 const repos = document.getElementById('repos');
 const repocount = document.getElementById('repo-count');
+const repono = document.getElementById('repono')
 const toggle = document.getElementById('toggle');
 
 toggle.addEventListener('click', e => {
@@ -93,6 +94,7 @@ const getUserWithRepos = async (username) => {
     repocount.innerHTML = `
     <span>${repositoriesCount}</span> ${repositoriesCount > 1 ? 'results' : 'result'} for <span>public</span> repositories
     `;
+    repono.innerText = repositoriesCount;
     const repositories = record.repositories.nodes;
     repos.innerHTML = '';
 
