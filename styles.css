@@ -160,6 +160,12 @@ button.profile img:first-child {
 
 .tabs-profile {
     display: flex;
+    align-items: center;
+    visibility: hidden;
+}
+
+.tabs-profile.visible {
+    visibility: visible;
 }
 
 .tabs-profile img {

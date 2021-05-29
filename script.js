@@ -10,7 +10,18 @@ const repocount = document.getElementById('repo-count');
 const repono = document.getElementById('repo-no');
 const tabsimg = document.getElementById('tabs-img');
 const tabsname = document.getElementById('tabs-name');
+const tabsprofile = document.getElementById('tabs-profile');
 const toggle = document.getElementById('toggle');
+
+window.addEventListener('scroll', () => {
+  const position = window.scrollY;
+
+  if (position > 400) {
+    tabsprofile.classList.add('visible');
+  } else {
+    tabsprofile.classList.remove('visible');
+  }
+});
 
 toggle.addEventListener('click', e => {
   let header = e.target.parentElement;
