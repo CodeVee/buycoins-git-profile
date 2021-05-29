@@ -13,6 +13,10 @@ const tabsimg = document.getElementById('tabs-img');
 const tabsname = document.getElementById('tabs-name');
 const tabsprofile = document.getElementById('tabs-profile');
 const toggle = document.getElementById('toggle');
+const form = document.getElementById('form');
+const request = document.getElementById('request');
+const submit = document.getElementById('submit');
+const error = document.getElementById('error');
 
 window.addEventListener('scroll', () => {
   const position = window.scrollY;
@@ -33,11 +37,36 @@ toggle.addEventListener('click', e => {
   header.classList.toggle('show')
 })
 
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  form.classList.toggle('submitting');
+  error.classList.remove('display');
+
+  const user = request.value.trim();
+  
+  getUserWithRepos(user);
+})
+
+request.addEventListener('keyup', e => {
+  const value = e.target.value.trim();
+
+  if (value && !/\s/g.test(value)) {
+    submit.disabled = false;
+  } else {
+    submit.disabled = true;
+  }
+})
+
 const getUserWithRepos = async (username) => {
 
     const tokenurl = 'https://mocki.io/v1/e0becf7a-e841-42c2-84cc-f6b2ea4063f7';
     const tokenres = await fetch(tokenurl);
-    if (!tokenres.ok) return;
+    if (!tokenres.ok) {
+      form.classList.toggle('submitting');
+      error.innerText = 'Invalid Token';
+      error.classList.add('display');
+      return;
+    }
 
     const tokendata = await tokenres.json();
     const token = tokendata.token;
@@ -92,15 +121,21 @@ const getUserWithRepos = async (username) => {
     const response = await fetch(url, options);
     const data = await response.json();
 
+    form.classList.toggle('submitting');
+
     if (!response.ok) {
-      console.log(data.message)
+      error.innerText = data.message;
+      error.classList.add('display');
       return;
     }
 
     if (data.hasOwnProperty('errors')) {
-        console.log(data.errors[0].type)
+        error.innerText = data.errors[0].type;
+        error.classList.add('display');
         return;
     }
+
+    form.style.display = 'none';
 
     const viewer = data.data.viewer;
     const record = data.data.user;
@@ -191,4 +226,4 @@ function formatRepo(name, stars, forks, description, updated, language) {
     
     `
 }
-getUserWithRepos('ireade');
+//getUserWithRepos('ireade');

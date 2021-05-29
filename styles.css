@@ -146,7 +146,6 @@ button.profile img:first-child {
     position: sticky;
     top: 0;
     background-color: var(--white-color);
-    /* z-index: 1; */
 }
 
 .container {
@@ -313,6 +312,97 @@ button.profile img:first-child {
 .repo-count span {
     font-weight: bold;
 }
+
+.form {
+    display: inline-flex;
+    position: relative;
+    flex-wrap: wrap;
+}
+
+.form .spin {
+    visibility: hidden;
+}
+
+.form.submitting .spin {
+    visibility: visible;
+}
+
+.request-txt {
+    border-radius: .5rem;
+    border: 1px solid var(--line-color);
+    padding: 0 2rem;
+    width: 25rem;
+    height: 4rem;
+    margin-right: 2rem;
+}
+
+.request-txt:focus, .request-btn:focus {
+    outline: none;
+}
+
+.request-btn {
+    border: none;
+    padding: .5rem 1.5rem;
+    border-radius: 1rem;
+    background-color: var(--header-color);
+    color: var(--white-color);
+}
+
+.request-btn:active {
+    transform: scale(0.98);
+}
+
+.request-btn:disabled {
+    transform: scale(1);
+    background-color: var(--tab-hover-color);
+}
+
+.error {
+    height: 4rem;
+    width: 100%;
+    padding: 2rem;
+    background-color: var(--tab-active-color);
+    margin: 2rem 0;
+    color: var(--white-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-radius: 1rem;
+    visibility: hidden;
+}
+
+.error.display {
+    visibility: visible;
+}
+
+@keyframes spinner {
+    0% {
+      transform: translate3d(-50%, -50%, 0) rotate(0deg);
+    }
+    100% {
+      transform: translate3d(-50%, -50%, 0) rotate(360deg);
+    }
+  }
+
+  
+  .spin::before {
+    animation: 1s linear infinite spinner;
+    animation-play-state: inherit;
+    border: solid .5rem #cfd0d1;
+    border-bottom-color: #1c87c9;
+    border-radius: 50%;
+    content: "";
+    height: 2rem;
+    width: 2rem;
+    position: absolute;
+    top: 15%;
+    right: -5rem;
+    align-self: center;
+    transform: translate3d(-50%, -50%, 0);
+    will-change: transform;
+  }
 
 .repo {
     border-bottom: 1px solid var(--line-color);
@@ -549,7 +639,7 @@ button.profile img:first-child {
     }
 
     .header.show .db {
-        display: block;
+        display: flex;
     }
     
     .nav-item {
@@ -642,6 +732,14 @@ button.profile img:first-child {
 
     .main-tabs {
         width: 52rem;
+    }
+
+    .request-txt {
+        width: 55%;
+    }
+
+    .spin::before {
+        right: -1.4rem;
     }
 
     .repo-name {

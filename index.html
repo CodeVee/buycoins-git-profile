@@ -121,10 +121,10 @@
                 </div>
             </div>
             <div class="profile-info">
-                <h1 id="name"></h1>
-                <h2 id="username"></h2>
+                <h1 id="name">Test User</h1>
+                <h2 id="username">johndoe</h2>
             </div>
-            <p class="profile-desc" id="description"></p>
+            <p class="profile-desc" id="description">Backend Engineer skilled at Node.js and Typescript</p>
         </aside>
         <main class="main">
             <div class="inner-tabs">
@@ -153,6 +153,14 @@
             </div>
             <div id="repo-count" class="repo-count">
             </div>
+            <div class="request-wrapper">
+                <form id="form" class="form">
+                    <input type="text" class="request-txt" id="request" placeholder="Enter a username">
+                    <button type="submit" class="request-btn" id="submit" disabled="">Find User</button>
+                    <div class="spin"></div>
+                    <div id="error" class="error"></div>
+                </form>
+            </div>       
             <div id="repos" class="repos">
                 
             </div>
