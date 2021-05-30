@@ -39,7 +39,7 @@ toggle.addEventListener('click', e => {
 
 form.addEventListener('submit', e => {
   e.preventDefault();
-  form.classList.toggle('submitting');
+  form.classList.toggle('loading');
   error.classList.remove('display');
 
   const user = request.value.trim();
@@ -62,7 +62,7 @@ const getUserWithRepos = async (username) => {
     const tokenurl = 'https://mocki.io/v1/e0becf7a-e841-42c2-84cc-f6b2ea4063f7';
     const tokenres = await fetch(tokenurl);
     if (!tokenres.ok) {
-      form.classList.toggle('submitting');
+      form.classList.toggle('loading');
       error.innerText = 'Invalid Token';
       error.classList.add('display');
       return;
@@ -121,7 +121,7 @@ const getUserWithRepos = async (username) => {
     const response = await fetch(url, options);
     const data = await response.json();
 
-    form.classList.toggle('submitting');
+    form.classList.toggle('loading');
 
     if (!response.ok) {
       error.innerText = data.message;
@@ -130,7 +130,7 @@ const getUserWithRepos = async (username) => {
     }
 
     if (data.hasOwnProperty('errors')) {
-        error.innerText = data.errors[0].type;
+        error.innerText = 'User not found';
         error.classList.add('display');
         return;
     }
@@ -226,4 +226,3 @@ function formatRepo(name, stars, forks, description, updated, language) {
     
     `
 }
-//getUserWithRepos('ireade');

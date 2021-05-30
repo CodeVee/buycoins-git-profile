@@ -10,6 +10,8 @@
     --mini-btn-color: #f3f4f6;
     --tab-active-color: #f9826c;
     --tab-hover-color: #d1d5da;
+    --form-btn-color: #009579;
+    --form-btn-active-color: #007a63;
 }
 
 * {
@@ -314,55 +316,94 @@ button.profile img:first-child {
 }
 
 .form {
-    display: inline-flex;
-    position: relative;
-    flex-wrap: wrap;
-}
-
-.form .spin {
-    visibility: hidden;
-}
-
-.form.submitting .spin {
-    visibility: visible;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1rem;
+    width: 40rem;
+    margin: 0 auto;
+    border-radius: 1rem;
+    border: 1px solid var(--line-color);
+    padding: 2rem;
 }
 
 .request-txt {
     border-radius: .5rem;
     border: 2px solid var(--border-color);
     padding: 0 2rem;
-    width: 25rem;
     height: 4rem;
-    margin-right: 2rem;
 }
 
 .request-txt:focus, .request-btn:focus {
     outline: none;
 }
 
-.request-btn {
+.submit {
+    position: relative;
+    padding: .8rem 1.6rem;
+    background-color: var(--form-btn-color);
     border: none;
-    padding: .5rem 1.5rem;
-    border-radius: 1rem;
-    background-color: var(--header-color);
-    color: var(--white-color);
-}
+    outline: none;
+    border-radius: .2rem;
+    cursor: pointer;
+  }
 
-.request-btn:active {
+  .submit:focus {
+    outline: none;
+  }
+  
+  .submit:active {
+    background-color: var(--form-btn-active-color);
     transform: scale(0.98);
-}
+  }
 
-.request-btn:disabled {
-    transform: scale(1);
-    background-color: var(--tab-hover-color);
-}
+  .submit:disabled {
+      background-color: #00ddb4;
+      cursor: not-allowed;
+      transform: scale(1);
+  }
+  
+  .submit-txt {
+    color: var(--white-color);
+    transition: all 0.2s;
+  }
+  
+  .loading .submit-txt {
+    visibility: hidden;
+    opacity: 0;
+  }
+  
+  .loading .submit::after {
+    content: "";
+    position: absolute;
+    width: 1.6rem;
+    height: 1.6rem;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    border: .4rem solid transparent;
+    border-top-color: var(--white-color);
+    border-radius: 50%;
+    animation: button-loading-spinner 1s ease infinite;
+  }
+  
+  @keyframes button-loading-spinner {
+    from {
+      transform: rotate(0turn);
+    }
+  
+    to {
+      transform: rotate(1turn);
+    }
+  }
 
 .error {
     height: 4rem;
-    width: 100%;
+    grid-column: 1/ span 2;
     padding: 2rem;
     background-color: var(--tab-active-color);
-    margin: 2rem 0;
+    margin: 1rem 0;
     color: var(--white-color);
     display: flex;
     align-items: center;
@@ -370,39 +411,12 @@ button.profile img:first-child {
     font-size: 1.5rem;
     font-weight: bold;
     border-radius: 1rem;
-    visibility: hidden;
+    display: none;
 }
 
 .error.display {
-    visibility: visible;
+    display: flex;
 }
-
-@keyframes spinner {
-    0% {
-      transform: translate3d(-50%, -50%, 0) rotate(0deg);
-    }
-    100% {
-      transform: translate3d(-50%, -50%, 0) rotate(360deg);
-    }
-  }
-
-  
-  .spin::before {
-    animation: 1s linear infinite spinner;
-    animation-play-state: inherit;
-    border: solid .5rem #cfd0d1;
-    border-bottom-color: #1c87c9;
-    border-radius: 50%;
-    content: "";
-    height: 2rem;
-    width: 2rem;
-    position: absolute;
-    top: 15%;
-    right: -5rem;
-    align-self: center;
-    transform: translate3d(-50%, -50%, 0);
-    will-change: transform;
-  }
 
 .repo {
     border-bottom: 1px solid var(--line-color);
@@ -735,12 +749,9 @@ button.profile img:first-child {
         width: 52rem;
     }
 
-    .request-txt {
-        width: 55%;
-    }
-
-    .spin::before {
-        right: -1.4rem;
+    .form {
+        width: auto;
+        grid-template-columns: 2.5fr 1.5fr;
     }
 
     .repo-name {
